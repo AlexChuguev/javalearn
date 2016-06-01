@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+         <h:form>
+            <table>
+                <tr>
+                    <th>
+                        <h:outputLabel value="Name" for="studentName"/>
+                    </th>
+                    <th>
+                        <h:inputText id="studentName" value="#{mBeans.studentName}" required="true">  
+                        </h:inputText>                                                                   
+
+                    </th>
+                    <th>
+                        <h:message for="studentName" style="color:red" /> 
+                    </th>
+                </tr>
+
+                <tr>
+                    <th>
+                        <h:outputLabel value="Age" for="age"/>
+                    </th>
+                    <th>
+                        <h:inputText id="age" value="#{mBeans.age}" required="true">
+                        </h:inputText>                                                                   
+                    </th>
+                    <th>
+                        <h:message for="age" style="color:red" /> 
+                    </th>
+                </tr> 
+              
+                <tr>
+                    <th align="right" width="10%">
+                        Group
+                    </th>
+                    <th align="left">
+                        <h:selectOneMenu value="#{mBeans.groupId}">
+                            <f:selectItems value="#{mBeans.getAllGroups()}" var="groupss"
+                                           itemValue="#{groupss.id}" itemLabel="#{groupss.name}" />
+                    </h:selectOneMenu>
+                    </th>
+                </tr>
+                
+                <tr>
+                    <th></th>
+                    <th>
+                        <h:commandLink value="Add Author" action="#{mBeans.addStudent()}"/>
+                    </th>
+                </tr>
+            </table>
+        </h:form>
+    </h:body>
+</html>
+
